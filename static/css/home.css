@@ -1,0 +1,25 @@
+/* End CSS for home.html */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.home-banner h2 {
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    margin: 15px 0;
+    color: #333;
+}
+
+.home-banner login {
+    color: #333;
+}
+
+/* End CSS for login.html */
