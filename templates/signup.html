@@ -4,7 +4,6 @@
     <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/signup.css') }}">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="{{ url_for('static', filename='js/signupFocus.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/formValidation.js') }}"></script>
 
     
     <div class="login-container" onload="document.form.eMail.focus()">
@@ -16,7 +15,7 @@
                 </div>
                 <div class="eMail">
                     <h5 id="mail">Adresse mail</h5>
-                    <input autocomplete="off" id="mailInput" class="input" onfocus="onFocusMail()" onfocusout="onFocusOutMail()" type="text" name="eMail">
+                    <input autocomplete="off" id="mailInput" class="input" onfocus="onFocusMail()" onfocusout="onFocusOutMail()" type="email" name="eMail" required>
                 </div>
             </div>
             <div class="input-div one focus">
@@ -25,7 +24,7 @@
                 </div>
                 <div>
                     <h5 id="userName">Nom de compte</h5>
-                    <input autocomplete="off" id="userNameInput" class="input" type="text" name="username" onfocus="onFocusUser()" onfocusout="onFocusOutUser()">
+                    <input autocomplete="off" id="userNameInput" class="input" type="text" name="username" onfocus="onFocusUser()" onfocusout="onFocusOutUser()" required>
                 </div>
             </div>
             <div class="input-div two focus">
@@ -34,7 +33,7 @@
                 </div>
                 <div>
                     <h5 id="pwd">Mot de passe</h5>
-                    <input id="pwdInput" class="input" type="password" name="password" onfocus="onFocusPwd()" onfocusout="onFocusOutPwd()">
+                    <input id="pwdInput" class="input" type="password" name="password" onfocus="onFocusPwd()" onfocusout="onFocusOutPwd()" required>
                 </div>
             </div>
             <div class="input-div two focus">
@@ -43,10 +42,10 @@
                 </div>
                 <div>
                     <h5 id="pwdConfirm">Confirmation du mot de passe</h5>
-                    <input id="pwdConfirmInput" class="input" type="password" name="confirmationPassword" onfocus="onFocusPwdConfirm()" onfocusout="onFocusOutPwdConfirm()">
+                    <input id="pwdConfirmInput" class="input" type="password" name="confirmationPassword" onfocus="onFocusPwdConfirm()" onfocusout="onFocusOutPwdConfirm()" required>
                 </div>
             </div>
-            <input class="button" type="submit" value="Signup" onclick="ValidateEmail(document.form.eMail)">
+            <input class="button" type="submit" value="Signup">
         </form>
     </div>
 {% endblock container %}
