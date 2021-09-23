@@ -1,4 +1,4 @@
-/* Start CSS for login.html */
+/* Start CSS for signup.html */
 
 * {
     padding: 0;
@@ -13,9 +13,6 @@ body {
 }
 
 .container{
-    top: 1%;
-    position: relative;
-    left: 27%;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -28,6 +25,10 @@ body {
     display: block;
     align-items: center;
     text-align: center;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 form {
@@ -129,18 +130,6 @@ form h2 {
     color: #555;
 }
 
-a {
-    display: block;
-    text-align: right;
-    text-decoration: none;
-    color: #999;
-    font-size: 0.9rem;
-    transition: .3s;
-}
-
-a:hover {
-    color: #38d39f;
-}
 
 .button {
     display: block;
