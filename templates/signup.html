@@ -4,10 +4,11 @@
     <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/signup.css') }}">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="{{ url_for('static', filename='js/signupFocus.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/formValidation.js') }}"></script>
 
     
     <div class="login-container" onload="document.form.eMail.focus()">
-        <form action="{{ url_for('post_login') }}" method="POST" name="form">
+        <form action="{{ url_for('auth.signup_validation') }}, " method="POST" name="form" onsubmit="validateForm()">
             <h2>Bienvenue</h2>
             <div class="input-div one focus">
                 <div class="i">
