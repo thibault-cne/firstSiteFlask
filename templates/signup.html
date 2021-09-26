@@ -8,7 +8,7 @@
 
     
     <div class="login-container" onload="document.form.eMail.focus()">
-        <form action="{{ url_for('auth.signup_validation') }}, " method="POST" name="form" onsubmit="validateForm()">
+        <form action="{{ url_for('auth.signup_validation') }}, " method="POST" name="form" onsubmit="return validateForm();">
             <h2>Bienvenue</h2>
             <div class="input-div one focus">
                 <div class="i">
