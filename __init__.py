@@ -1,3 +1,8 @@
+"""
+    Author : Thibault Chenevière
+    Date : 26/09/2021
+"""
+
 from re import DEBUG
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy

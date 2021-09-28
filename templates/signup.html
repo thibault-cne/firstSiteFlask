@@ -1,3 +1,8 @@
+<!--
+    Author : Thibault Cheneviere
+    Date : 28/09/2021
+-->
+
 {% extends 'layout.html' %}
 
 {% block container %}
@@ -5,10 +10,10 @@
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="{{ url_for('static', filename='js/signupFocus.js') }}"></script>
     <script src="{{ url_for('static', filename='js/formValidation.js') }}"></script>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     
-    <div class="login-container" onload="document.form.eMail.focus()">
-        <form action="{{ url_for('auth.signup_validation') }}, " method="POST" name="form" onsubmit="return validateForm();">
+    <div class="login-container">
+        <form action="{{ url_for('auth.signup_validation') }}" method="POST" onsubmit="return validateForm()">
             <h2>Bienvenue</h2>
             <div class="input-div one focus">
                 <div class="i">
@@ -46,7 +51,7 @@
                     <input id="pwdConfirmInput" class="input" type="password" name="confirmationPassword" onfocus="onFocusPwdConfirm()" onfocusout="onFocusOutPwdConfirm()" required>
                 </div>
             </div>
-            <input class="button" type="submit" value="Signup">
+            <input class="button" type="submit" value="Signup" id="btnSignup">
         </form>
     </div>
 {% endblock container %}

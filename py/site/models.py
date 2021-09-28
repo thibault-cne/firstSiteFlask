@@ -1,3 +1,8 @@
+"""
+    Author : Thibault Chenevière
+    Date : 28/09/2021
+"""
+
 from flask_login import UserMixin
 from __init__ import db
 

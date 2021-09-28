@@ -1,20 +1,22 @@
+/*
+    Author : Thibault Cheneviere
+    Date : 28/09/2021
+*/
+
 // Fonction to validate if the user input is an email adress
 
-function validateForm() {
-  pwd = document.getElementById('pwdInput').value;
-  pwdConfirm = document.getElementById('pwdConfirmInput').value;
-
-
-  if (pwd='' || pwd.length < 4 || pwd.length > 20 ) {
-    alert("Merci de rentrer un mot de passe entre 4 et 20 caractères !");
-    return false;
-  }
-
-  if (pwdConfirm!=pwd) {
-    alert("Les deux mots de passe ne sont pas identiques");
-    return false;
-  }
-
-  return true;
-    
-}
+$(function () {
+  $("#btnSignup").click(function () {
+      var password = $("#pwdInput").val();
+      var confirmPassword = $("#pwdConfirmInput").val();
+      if (password != confirmPassword) {
+          alert("Les mots de passes ne sont pas identiques.");
+          return false;
+      }
+      if (password.length < 4 || password.length > 20) {
+        alert("Merci de choisir un mot de passe entre 4 et 20 caractères.");
+        return false;
+      }
+      return true;
+  });
+});

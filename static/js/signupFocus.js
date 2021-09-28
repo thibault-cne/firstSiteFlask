@@ -1,3 +1,10 @@
+/*
+    Author : Thibault Cheneviere
+    Date : 28/09/2021
+*/
+
+// Function to onFocus and outFocus on the signup and login page
+
 function onFocusPwd() {
 	document.getElementById("pwd").style.display = "none";
 }
