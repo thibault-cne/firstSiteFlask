@@ -3,8 +3,8 @@
     Date : 17/09/2021
 """
 
-from flask import render_template, Blueprint
-from flask_login import login_required
+from flask import render_template, Blueprint, redirect, url_for
+from flask_login import login_required, current_user
 
 
 main = Blueprint('main', __name__)
@@ -18,4 +18,4 @@ def home():
 @main.route('/profile')
 @login_required
 def profile():
-    return 'Hi !'
+    return render_template('profile.html', name=current_user.name)

@@ -3,7 +3,6 @@
     Date : 26/09/2021
 """
 
-from re import DEBUG
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager 
@@ -15,6 +14,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.firstSite'
+    app.config['SECRET_KEY'] = '29FTh4Swfr3DuMlNRcQcZxCk7IFBMooP'
 
     db.init_app(app)
 
@@ -40,5 +40,8 @@ def create_app():
     return app
 
 if __name__ == "__main__":
+    # db.create_all(app=create_app())
     app = create_app()
     app.run(debug=1)
+
+

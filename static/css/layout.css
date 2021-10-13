@@ -1,0 +1,14 @@
+/*
+    Author : Thibault Cheneviere
+    Date : 28/09/2021
+*/
+/* Start CSS for layout.html */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+.navbar {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+/* End CSS for layout.html */
