@@ -22,7 +22,7 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    from py.site.models import User
+    from py.site.models import User, Message
 
     @login_manager.user_loader
     def load_user(user_id):

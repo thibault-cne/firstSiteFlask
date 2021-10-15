@@ -1,8 +1,8 @@
 /*
     Author : Thibault Cheneviere
-    Date : 28/09/2021
+    Date : 15/10/2021
 */
-/* Start CSS for home.html */
+/* Start CSS for message.html */
 
 * {
     padding: 0;
@@ -21,7 +21,13 @@ body {
     color: #fff;
     text-align: center;
     margin-top: 3%;
-    font-size: 10rem;
 }
 
-/* End CSS for home.html */
+.form-control {
+    height: auto;
+    background-color: #1c1e21;
+    text-indent: 24px;
+    font-size: 15px
+}
+
+/* End CSS for message.html */

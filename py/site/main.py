@@ -18,9 +18,22 @@ def home():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    return render_template('profile.html', name=current_user.name.title())
+
+
+@main.route('/createMessage')
+@login_required
+def createMessage():
+    return render_template('createMessage.html', name=current_user.name.title())
+
+
+@main.route('/createMessage', methods=['GET', 'POST'])
+@login_required
+def createMessage_form():
+    return render_template('createMessage.html', name=current_user.name.title())
+
+
 
 @main.route('/message')
-@login_required
 def message():
-    return render_template('message.html', name=current_user.name)
+    return render_template('messages.html')

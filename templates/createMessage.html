@@ -1,0 +1,28 @@
+<!--
+    Author : Thibault Cheneviere
+    Date : 13/10/2021
+-->
+
+{% extends 'layout.html' %}
+
+{% block container %}
+    <!-- CSS dependencies -->
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/createMessages.css') }}">
+    
+
+    
+    <div class='home-banner'>
+        <h2>Bienvenue {{name}}</h2>
+    </div>
+    <form action="{{ url_for('main.createMessage_form') }}" name="messageInput" method="POST">
+        <div class="card px-5 py-5">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Titre" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="messageArea" id="msgArea" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <button class="btn btn-primary mt-4">Publier</button>
+        </div>
+    </form>
+{% endblock container %}

@@ -6,6 +6,11 @@
 {% extends 'layout.html' %}
 
 {% block container %}
+    <!-- CSS dependencies -->
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/profile.css') }}">
+    
+
+
     <div class='home-banner'>
         <h2>Bienvenue {{name}}</h2>
     </div>
