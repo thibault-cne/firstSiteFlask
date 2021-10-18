@@ -28,7 +28,6 @@ def signup_validation():
     password = request.form['password']
     confPassword = request.form['confirmationPassword']
     remember = request.form['remember']
-    print(remember)
 
     user = User.query.filter_by(email=email).first()
     

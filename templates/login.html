@@ -6,8 +6,14 @@
 {% extends 'layout.html' %}
 
 {% block container %}
+    <!-- CSS dependancies -->
     <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/login.css') }}">
+    
+    
+    <!-- Script dependancies -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    
+    
     
     {% with messages = get_flashed_messages(category_filter=[""]) %}
     {% if messages %}

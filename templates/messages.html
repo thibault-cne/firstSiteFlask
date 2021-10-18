@@ -10,9 +10,29 @@
     <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/message.css') }}">
     
 
+    <!-- Script dependancies -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+
     <div class="home-banner">
-        <h2>Messages publié</h2>
+        <h2>Messages publiés</h2>
     </div>
-    <div class="form-control">
-    </div>
+    {% for survey in surveys %}
+    <form action="{{ url_for('main.message') }}">
+        <div class="form-control">
+            <div class="form-control-plaintext">
+                Auteur : {{ survey[0] }}
+            </div>
+            <div class="form-control-plaintext">
+                Titre : {{ survey[1] }}
+            </div>
+            <div class="form-control-plaintext">
+                Contenu : {{ survey[2] }}
+            </div>
+            <div class="nb-like">
+                <button class="fas fa-thumbs-up btn btn-primary mt-4"> Nombre de votes : {{survey[3]}}</button>
+            </div>
+        </div>
+    </form>
+    {% endfor %}
 {% endblock container %}

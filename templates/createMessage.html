@@ -14,13 +14,13 @@
     <div class='home-banner'>
         <h2>Bienvenue {{name}}</h2>
     </div>
-    <form action="{{ url_for('main.createMessage_form') }}" name="messageInput" method="POST">
+    <form action="{{ url_for('main.createMessage_form') }}" name="surveyInput" method="POST">
         <div class="card px-5 py-5">
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Titre" required>
+                <input class="form-control" name="surveyTitle" type="text" placeholder="Titre" required>
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="messageArea" id="msgArea" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="surveyArea" id="msgArea" rows="5" placeholder="Description du sondage" required></textarea>
             </div>
             <button class="btn btn-primary mt-4">Publier</button>
         </div>

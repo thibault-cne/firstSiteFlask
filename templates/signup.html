@@ -6,13 +6,13 @@
 {% extends 'layout.html' %}
 
 {% block container %}
-    <!-- CSS -->
+    <!-- CSS dependancies -->
     <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/signup.css') }}">
     
-    <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Script dependancies -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
 
     {% with messages = get_flashed_messages(category_filter=[""]) %}
     {% if messages %}

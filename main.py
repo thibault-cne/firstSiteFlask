@@ -22,7 +22,7 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    from py.site.models import User, Message
+    from py.site.models import User, Survey
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -30,11 +30,11 @@ def create_app():
         return User.query.get(int(user_id))
 
     # blueprint for auth routes in our app
-    from py.site.auth import auth as auth_blueprint
+    from py.site.authBP import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
     # blueprint for non-auth parts of app
-    from py.site.main import main as main_blueprint
+    from py.site.mainBP import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
     return app
