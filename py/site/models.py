@@ -20,6 +20,7 @@ class Survey(db.Model):
     content = db.Column(db.String)
     voteYes = db.Column(db.Integer)
 
+
 class Likes(db.Model):
     message_id = db.Column(db.Integer, primary_key = True)
     author_id = db.Column(db.Integer, primary_key = True)

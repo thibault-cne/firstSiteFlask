@@ -3,12 +3,12 @@
     Date : 17/09/2021
 """
 
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, flash
 from flask_login import login_required, current_user
 from main import db
 from py.core.survey2list import survey2list
 
-from py.site.models import Survey
+from py.site.models import Survey, Likes
 
 
 main = Blueprint('main', __name__)
@@ -51,14 +51,34 @@ def createMessage_form():
 @login_required
 def message():
     surveys = Survey.query.all()
-    print('yes')
     surveyList = survey2list(surveys)
     return render_template('messages.html', surveys=surveyList)
 
 
-@main.route('/message')
+@main.route('/message', methods=['GET', 'POST'])
 @login_required
 def addLike():
-    user = current_user
-    userId = user.id
+    userId = current_user.id
+    msgId = request.form['messageID']
+    
+    if msgId == "" or msgId is None:
+        flash("Une erreur est arrivé, merci de soumettre votre vote a nouveau", "")
+        return message()
+    
+    checkMsg = Likes.query.filter_by(message_id=msgId, author_id=userId).first()
+
+    if checkMsg is None:
+        newLike = Likes(message_id=msgId, author_id=userId)
+        msg = Survey.query.filter_by(id=msgId).first()
+        msg.voteYes += 1
+
+        db.session.add(newLike)
+        db.session.commit()
+
+        return message()
+    
+    else:
+        flash("Vous ne pouvez pas voter 2 fois pour un même sondage", "")
+        return message()
+    
     
