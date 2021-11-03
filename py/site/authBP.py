@@ -38,7 +38,7 @@ def signup_validation():
         flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "")
         return redirect(url_for('auth.signup'))
     elif user is None:
-        new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+        new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), role=0)
 
         db.session.add(new_user)
         db.session.commit()

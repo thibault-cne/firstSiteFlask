@@ -23,4 +23,17 @@ body {
     margin-top: 3%;
 }
 
+.information {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.information p {
+    color: #fff;
+    margin-top: -5px;
+    font-weight: 300;
+}
+
 /* End CSS for profile.html */

@@ -12,6 +12,12 @@
 
 
     <div class='home-banner'>
-        <h2>Bienvenue {{ name }}</h2>
+        <h2>Bienvenue {{ profileData['name'] }}</h2>
+    </div>
+    <div>
+        <div class="information">
+            <p>Email : {{  profileData['email']  }}</p>
+            <p>Role : {{  profileData['role']  }}</p>
+        </div>
     </div>
 {% endblock container %}

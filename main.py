@@ -40,7 +40,6 @@ def create_app():
     return app
 
 if __name__ == "__main__":
-    # db.create_all(app=create_app())
     app = create_app()
     app.run(debug=1)
 

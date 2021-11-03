@@ -8,7 +8,7 @@ from flask_login import login_required, current_user
 from main import db
 from py.core.survey2list import survey2list
 
-from py.site.models import Survey, Likes
+from py.site.models import Survey, Likes, User
 
 
 main = Blueprint('main', __name__)
@@ -22,7 +22,20 @@ def home():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name.title())
+    userId = current_user.id
+    user = User.query.filter_by(id=userId).first()
+    if user.role == 0:
+        role = "Citoyen"
+    elif user.role == 1:
+        role = "Administrateur"
+
+    profileData = {
+        "name": current_user.name.title(),
+        "role": role,
+        "email": user.email
+    }
+    print(profileData)
+    return render_template('profile.html', profileData=profileData)
 
 
 @main.route('/createMessage')
