@@ -44,7 +44,12 @@ def signup_validation():
         db.session.commit()
 
         login_user(new_user, remember=remember)
-        return render_template('profile.html', name=new_user.name)
+        profileData = {
+            "name": name,
+            "role": 0,
+            "email": email
+        }
+        return render_template('profile.html', profileData=profileData)
     else:
         flash(f"Il existe déjà un compte avec cette adresse mail.", "site_flash")
         return redirect(url_for('auth.signup'))

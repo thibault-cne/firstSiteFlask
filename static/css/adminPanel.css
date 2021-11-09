@@ -1,0 +1,49 @@
+/*
+    Author : Thibault Cheneviere
+    Date : 28/09/2021
+*/
+/* Start CSS for admin.html */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    background-color: #535fe6;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+.role {
+    width: 45px;
+}
+
+.form-control {
+    height: 50px;
+    background-color: #1c1e21;
+    text-indent: 5px;
+    font-size: 15px
+}
+
+.form-control {
+    color: #fff
+}
+
+.form-control:focus {
+    background-color: #25272a;
+    box-shadow: none;
+    color: #fff;
+    border-color: #4f63e7
+}
+
+.btn {
+    height: 50px;
+    border-color: #fff;
+    background-color: #25272a;
+}
+
+.btn:hover {
+    border-color: #25272a;
+    background-color: #fff;
+    color: #25272a
+}
+
+/* End CSS for adminPanel.css */
