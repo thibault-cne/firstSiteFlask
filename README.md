@@ -4,8 +4,8 @@ My first website using Flask on python. It aims to be a secured forum for
 an application in Civic Tech.
 ***
 # Table of Content
-1. [Dependancies](#dependancies)
-2. [Installation](#installation)
+1. [Dependancies](#dependancies-)
+2. [Installation](#installation-)
 ***
 ## Dependancies :
 ```
