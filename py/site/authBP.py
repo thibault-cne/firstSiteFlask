@@ -24,7 +24,8 @@ def signup():
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup_validation():
     email = request.form['eMail']
-    name = request.form['username']
+    firstName = request.form['firstName']
+    lastName = request.form['lastName']
     password = request.form['password']
     confPassword = request.form['confirmationPassword']
     remember = request.form['remember']
@@ -38,15 +39,15 @@ def signup_validation():
         flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "")
         return redirect(url_for('auth.signup'))
     elif user is None:
-        new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), role=0)
+        new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName)
 
         db.session.add(new_user)
         db.session.commit()
 
         login_user(new_user, remember=remember)
         profileData = {
-            "name": name,
-            "role": 0,
+            "name": firstName,
+            "role": "Citoyen",
             "email": email
         }
         return render_template('profile.html', profileData=profileData)

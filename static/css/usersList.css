@@ -20,10 +20,7 @@ body {
     height: 50px;
     background-color: #1c1e21;
     text-indent: 5px;
-    font-size: 15px
-}
-
-.form-control {
+    font-size: 15px;
     color: #fff
 }
 
@@ -44,6 +41,15 @@ body {
     border-color: #25272a;
     background-color: #fff;
     color: #25272a
+}
+
+tr th input[readonly] {
+    height: 50px;
+    background-color: #fff;
+    color: #25272a;
+    border-color: #25272a;
+    text-indent: 5px;
+    font-size: 15px
 }
 
 /* End CSS for adminPanel.css */

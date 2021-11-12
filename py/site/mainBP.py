@@ -30,7 +30,8 @@ def profile():
         role = "Administrateur"
 
     profileData = {
-        "name": current_user.name.title(),
+        "firstName": current_user.firstName,
+        "lastName": user.lastName,
         "role": role,
         "email": user.email
     }
@@ -41,7 +42,7 @@ def profile():
 @main.route('/createMessage')
 @login_required
 def createMessage():
-    return render_template('createMessage.html', name=current_user.name.title())
+    return render_template('createMessage.html', name=current_user.firstName.title())
 
 
 @main.route('/createMessage', methods=['GET', 'POST'])

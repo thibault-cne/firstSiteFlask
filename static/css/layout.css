@@ -12,4 +12,8 @@
     font-weight: 300
 }
 
+.alert {
+    margin-top: 10px;
+}
+
 /* End CSS for layout.html */

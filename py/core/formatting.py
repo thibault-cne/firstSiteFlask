@@ -26,8 +26,9 @@ def format_email(email):
 def format_users_list(usersList):
     userList = []
     for users in usersList:
-        temp = [users.name, format_email(users.email), users.role]
-        userList.append(temp)
+        if users.firstName != "admin":
+            temp = [users.id, users.firstName, users.lastName, format_email(users.email), users.role]
+            userList.append(temp)
 
     return userList
 

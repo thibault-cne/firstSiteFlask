@@ -34,8 +34,8 @@
     {% endif %}
     {% endwith %}
     {% for survey in surveys %}
-    <form action="{{ url_for('main.addLike') }}" method="POST">
-        <div class="form-control">
+    <form action="{{ url_for('main.addLike') }}" method="POST" id="formAddLike">
+        <div class="form-control position-relative">
             <div class="form-control-plaintext">
                 Auteur : {{ survey[0] }}
             </div>
@@ -45,9 +45,22 @@
             <div class="form-control-plaintext">
                 Contenu : {{ survey[2] }}
             </div>
-            <div class="nb-like">
-                <button value="{{ survey[4] }}" class="fas fa-thumbs-up btn btn-primary mt-4" name="messageID"> Nombre de votes : {{survey[3]}}</button>
+            <div class="nb-like position-absolute top-100 start-100 translate-middle">
+                <button value="{{ survey[4] }}" class="fas fa-thumbs-up btn btn-primary position-relative" name="messageID" form="formAddLike">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger icon-0x">
+                        {{ survey[3] }}
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
             </div>
+            {% if current_user.role == 1 %}
+                <form action="{{ url_for('main.profile') }}" method="POST" id="formDeleteSurvey">
+                    <div class="position-absolute top-0 start-100 translate-middle">
+                        <button value="{{ survey[4] }}" class="fas fa-times btn btn-primary position-relative deleteBtn" name="deleteBtn" form="formDeleteSurvey"></button>
+                    </div>
+                </form>
+            {% endif %}
+            
         </div>
     </form>
     {% endfor %}
