@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     firstName = db.Column(db.String(100))
     lastName = db.Column(db.String(100))
     role = db.Column(db.Integer)
+    adress = db.Column(db.String(1000))
 
 
 class Survey(db.Model):

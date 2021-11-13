@@ -19,26 +19,6 @@ def home():
     return render_template('home.html')
 
 
-@main.route('/profile')
-@login_required
-def profile():
-    userId = current_user.id
-    user = User.query.filter_by(id=userId).first()
-    if user.role == 0:
-        role = "Citoyen"
-    elif user.role == 1:
-        role = "Administrateur"
-
-    profileData = {
-        "firstName": current_user.firstName,
-        "lastName": user.lastName,
-        "role": role,
-        "email": user.email
-    }
-    print(profileData)
-    return render_template('profile.html', profileData=profileData)
-
-
 @main.route('/createMessage')
 @login_required
 def createMessage():

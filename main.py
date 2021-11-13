@@ -41,6 +41,9 @@ def create_app():
     from py.site.adminBP import admin as admin_blueprint
     app.register_blueprint(admin_blueprint)
 
+    from py.site.profileBP import profile as profile_blueprint
+    app.register_blueprint(profile_blueprint)
+
     return app
 
 if __name__ == "__main__":

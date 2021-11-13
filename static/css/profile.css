@@ -43,6 +43,7 @@ label {
 .form-control input{
     color: #fff;
     height: 35px;
+    text-indent: 5px;
 }
 
 .form-control input[readonly] {
