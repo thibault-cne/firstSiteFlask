@@ -35,7 +35,7 @@ def users_panel_validation():
 
     user = User.query.filter_by(id=userId).first()
 
-    if newRole not in [0, 1]:
+    if int(newRole) not in [0, 1]:
         flash(f"Merci de choisir un role dans la plage {[0, 1]}.", "roleError")
         return users_list_panel()
         

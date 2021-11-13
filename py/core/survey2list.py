@@ -26,9 +26,10 @@ def survey2list(surveys: list) -> list:
     for survey in surveys:
         temp = [0, 0, 0, 0, 0]
         user = User.query.filter_by(id=survey.author_id).first()
-        userName = user.firstName
+        firstName = user.firstName
+        lastName = user.lastName
 
-        temp[0] = userName
+        temp[0] = firstName + " " + lastName
         temp[1] = survey.title
         temp[2] = survey.content
         temp[3] = survey.voteYes

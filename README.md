@@ -24,8 +24,9 @@ Here is a list of all the dependancies used in this project :
 Guide for the installation :
 ```
 $ python3 -m venv -p="/usr/local/bin/python3" /path/to/new/virtual/environment
-$ pip install -r requirements.txt
 $ git clone https://github.com/Thibault-Vl/firstSiteFlask.git
+$ pip install -r requirements.txt
+$ python3 initBD.py
 $ python3 main.py
 ```
 ***

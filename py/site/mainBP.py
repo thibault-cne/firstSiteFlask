@@ -32,12 +32,26 @@ def createMessage_form():
     surveyContent = request.form['surveyArea']
     author_id = current_user.id
 
-    if len(surveyTitle) < 100:
+    user = User.query.filter_by(id=author_id).first()
+
+    if user.adress == "":
+        flash("Merci de referencer votre adresse avant de poster un message", "")
+
+        return createMessage()
+
+    elif len(surveyTitle) < 100:
         newSurvey = Survey(title=surveyTitle, content=surveyContent, voteYes=0, author_id=author_id)
         db.session.add(newSurvey)
         db.session.commit()
 
-    return message()
+        return message()
+    
+    else:
+        flash("Merci de rentrer un titre de moins de 100 caractères", "")
+
+        return createMessage()
+
+    
 
 
 

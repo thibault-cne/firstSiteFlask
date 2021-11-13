@@ -39,16 +39,18 @@ def signup_validation():
         flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "")
         return redirect(url_for('auth.signup'))
     elif user is None:
-        new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName)
+        new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName, adress="")
 
         db.session.add(new_user)
         db.session.commit()
 
         login_user(new_user, remember=remember)
         profileData = {
-            "name": firstName,
+            "firstName": firstName,
             "role": "Citoyen",
-            "email": email
+            "email": email,
+            "lastName": lastName,
+            "adress": ""
         }
         return render_template('profile.html', profileData=profileData)
     else:
@@ -70,7 +72,7 @@ def login_validation():
         return redirect(url_for('auth.signup'))
     elif check_password_hash(user.password, password):
         login_user(user, remember=remember)
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('profile.profile_route'))
     else:
         flash("Compte ou mot de passe incorrect", "")
         return redirect(url_for('auth.login'))

@@ -54,7 +54,7 @@
                 </button>
             </div>
             {% if current_user.role == 1 %}
-                <form action="{{ url_for('main.profile') }}" method="POST" id="formDeleteSurvey">
+                <form action="{{ url_for('profile.profile_route') }}" method="POST" id="formDeleteSurvey">
                     <div class="position-absolute top-0 start-100 translate-middle">
                         <button value="{{ survey[4] }}" class="fas fa-times btn btn-primary position-relative deleteBtn" name="deleteBtn" form="formDeleteSurvey"></button>
                     </div>

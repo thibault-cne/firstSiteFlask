@@ -29,13 +29,23 @@ def profile_route():
         "lastName": user.lastName,
         "role": role,
         "email": user.email,
-        "adress": ""
+        "adress": user.adress
     }
     print(profileData)
     return render_template('profile.html', profileData=profileData)
 
-@profile.route('/profile')
+@profile.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile_form_validation():
     email = request.form['emailValue']
+    adress = request.form['adressValue']
+
+    user = User.query.filter_by(email=email).first()
+
+    user.adress = adress
+    db.session.commit()
+
+    flash("Les modifications que vous avez apportez on bien été enregistrée", "Green_flash")
+
+    return profile_route()
 

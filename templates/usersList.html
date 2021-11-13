@@ -56,8 +56,8 @@
     {% for users in usersList %}
         <tr>
             <form action="{{ url_for('admin.users_panel_validation') }}" method="POST">
-                <th><input class="username form-control"  name="username" type="text" value="{{ users[1] }}"></th>
-                <th><input class="username form-control"  name="username" type="text" value="{{ users[2] }}"></th>
+                <th><input class="username form-control"  name="username" type="text" value="{{ users[1] }}" readonly></th>
+                <th><input class="username form-control"  name="username" type="text" value="{{ users[2] }}" readonly></th>
                 <th><input class="email form-control" name="email" type="text" value="{{ users[3] }}" readonly></th>
                 <th><input class="role form-control" name="role" type="text" value="{{ users[4] }}"></th>
                 <th><button value="{{ users[0] }}" class="btn btn-primary" name="userId">Modify</button></th>
