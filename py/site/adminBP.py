@@ -8,8 +8,8 @@ from flask.helpers import flash
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import redirect
 from werkzeug.security import check_password_hash, generate_password_hash
-from py.core.formatting import format_users_list
-from py.site.models import User
+from py.core.formatting import format_users_list, format_deleted_survey_list
+from py.site.models import DeletedMessage, User
 from main import db
 
 admin = Blueprint('admin', __name__)
@@ -23,7 +23,20 @@ def users_list_panel():
         return render_template("usersList.html", usersList=format_users_list(usersList))
 
     else:
-        flash("Vous n'avez pas la permission pour accéder à cette page", "")
+        flash("Vous n'avez pas la permission pour accéder à cette page", "Red_flash")
+        return render_template("home.html")
+
+
+@admin.route('/deletedSurveysList')
+@login_required
+def deletedSurveysList_panel():
+    if current_user.role == 1:
+        deletedSurveys = DeletedMessage.query.all()
+
+        return render_template("deletedMessageList.html", deletedMessageList=format_deleted_survey_list(deletedSurveys))
+    
+    else:
+        flash("Vous n'avez pas la permission pour accéder à cette page", "Red_flash")
         return render_template("home.html")
 
 
@@ -36,7 +49,7 @@ def users_panel_validation():
     user = User.query.filter_by(id=userId).first()
 
     if int(newRole) not in [0, 1]:
-        flash(f"Merci de choisir un role dans la plage {[0, 1]}.", "roleError")
+        flash(f"Merci de choisir un role dans la plage {[0, 1]}.", "Red_flash")
         return users_list_panel()
         
     elif newUsername != user.firstName or newRole != user.role:

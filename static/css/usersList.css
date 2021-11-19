@@ -2,7 +2,7 @@
     Author : Thibault Cheneviere
     Date : 28/09/2021
 */
-/* Start CSS for admin.html */
+/* Start CSS for usersList.html */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
@@ -52,4 +52,4 @@ tr th input[readonly] {
     font-size: 15px
 }
 
-/* End CSS for adminPanel.css */
+/* End CSS for usersList.css */

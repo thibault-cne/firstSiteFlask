@@ -1,0 +1,48 @@
+<!--
+    Author : Thibault Cheneviere
+    Date : 16/11/2021
+-->
+
+{% extends 'layout.html' %}
+
+{% block container %}
+    <!-- CSS dependencies -->
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/deleteMessage.css') }}">
+    
+
+    <!-- Script dependancies -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+
+    <div class="home-banner">
+        <h2>Suppression de message</h2>
+    </div>
+    <form action="{{ url_for('main.deleteMessage') }}" method="POST">
+        <div class="card px-5 py-5">
+            <div class="form-control position-relative">
+                <div class="form-control-plaintext">
+                    Auteur : {{ deletedMessage['author'] }}
+                </div>
+                <div class="form-control-plaintext">
+                    Titre : {{ deletedMessage['title'] }}
+                </div>
+                <div class="form-control-plaintext">
+                    Contenu : {{ deletedMessage['content'] }}
+                </div>
+                <div class="nb-like position-absolute top-100 start-100 translate-middle">
+                    <button class="fas fa-thumbs-up btn btn-primary position-relative" name="messageID" form="formAddLike" disabled>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger icon-0x">
+                            {{ deletedMessage['voteYes'] }}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-control position-relative deleteValidation">
+                <textarea class="form-control" placeholder="Raison de la suppression" name="reasonDelet" id="reasonDelet" rows="5" required></textarea>
+                <button value="{{ deletedMessage['id'] }}" class="btn btn-primary mt-4" name="deleteBtn">Valider la suppression</button>
+            </div>
+        </div>
+    </form>
+{% endblock container %}

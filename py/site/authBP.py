@@ -33,10 +33,10 @@ def signup_validation():
     user = User.query.filter_by(email=email).first()
     
     if password != confPassword:
-        flash("Les mots de passes ne sont pas identiques.", "")
+        flash("Les mots de passes ne sont pas identiques.", "Red_flash")
         return redirect(url_for('auth.signup'))
     elif len(password) < 4 or len(password) > 20:
-        flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "")
+        flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "Red_flash")
         return redirect(url_for('auth.signup'))
     elif user is None:
         new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName, adress="")
@@ -54,7 +54,7 @@ def signup_validation():
         }
         return render_template('profile.html', profileData=profileData)
     else:
-        flash(f"Il existe déjà un compte avec cette adresse mail.", "site_flash")
+        flash(f"Il existe déjà un compte avec cette adresse mail.", "Red_flash")
         return redirect(url_for('auth.signup'))
 
 
@@ -68,13 +68,13 @@ def login_validation():
     user = User.query.filter_by(email=email).first()
 
     if user is None:
-        flash("Il n'existe pas de compte avec cet adresse mail", "")
+        flash("Il n'existe pas de compte avec cet adresse mail", "Red_flash")
         return redirect(url_for('auth.signup'))
     elif check_password_hash(user.password, password):
         login_user(user, remember=remember)
         return redirect(url_for('profile.profile_route'))
     else:
-        flash("Compte ou mot de passe incorrect", "")
+        flash("Compte ou mot de passe incorrect", "Red_flash")
         return redirect(url_for('auth.login'))
 
 @auth.route('/logout')

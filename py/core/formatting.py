@@ -3,6 +3,9 @@
     Date : 09/11/2021
 """
 
+from py.site.models import User
+
+
 def format_email(email):
     username = email.split('@')[0]
     domain = email.split('@')[1]
@@ -32,4 +35,16 @@ def format_users_list(usersList):
 
     return userList
 
+
+def format_deleted_survey_list(deletedSurveyList):
+    deletedSurveys = []
+
+    for surveys in deletedSurveyList:
+        user = User.query.filter_by(id=surveys.author_id).first()
+        authorName = user.firstName.title() + " " + user.lastName.title()
+
+        temp = [authorName, surveys.title, surveys.content, surveys.voteYes, surveys.reason]
+
+        deletedSurveys.append(temp)
     
+    return deletedSurveys
