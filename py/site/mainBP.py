@@ -3,12 +3,15 @@
     Date : 17/09/2021
 """
 
+# Import de module
 from flask import render_template, Blueprint, request, flash
 from flask_login import login_required, current_user
+
+
+# Import de fonction personnelle
 from main import db
 from py.core.survey2list import survey2list
 from py.core.checkUsersInfo import checkUsersInfo
-
 from py.site.models import DeletedMessage, Message, Likes, User
 
 

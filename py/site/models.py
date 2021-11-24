@@ -3,7 +3,11 @@
     Date : 28/09/2021
 """
 
+# Import de module
 from flask_login import UserMixin
+
+
+# Import de fonction personnelle
 from main import db
 
 class User(UserMixin, db.Model):

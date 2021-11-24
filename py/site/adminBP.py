@@ -3,11 +3,15 @@
     Date : 09/11/2021
 """
 
+# Import de module
 from flask import render_template, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import redirect
 from werkzeug.security import check_password_hash, generate_password_hash
+
+
+# Import de fonction personnelle
 from py.core.formatting import format_users_list, format_deleted_survey_list
 from py.site.models import DeletedMessage, User
 from main import db

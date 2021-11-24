@@ -36,14 +36,34 @@ body {
     left: 10px
 }
 
+.form-select {
+    position: relative;
+    height: 50px;
+    background-color: #1c1e21;
+    text-indent: 24px;
+    font-size: 15px;
+    color: #fff
+}
+
+.form-select i {
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 10px;
+}
+
+.form-select:focus {
+    background-color: #25272a;
+    box-shadow: none;
+    color: #fff;
+    border-color: #4f63e7
+}
+
 .form-control {
     height: 50px;
     background-color: #1c1e21;
     text-indent: 24px;
     font-size: 15px;
-}
-
-.form-control {
     color: #fff
 }
 

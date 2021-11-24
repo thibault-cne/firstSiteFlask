@@ -3,13 +3,20 @@
     Date : 26/09/2021
 """
 
+# Import de modules
 from flask import render_template, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import login_user, logout_user, login_required
 from werkzeug.utils import redirect
 from werkzeug.security import check_password_hash, generate_password_hash
+
+
+# Import de fonction personnelle
 from py.site.models import User
 from main import db
+from py.core.checkFormat import checkFormatBirthDate
+
+
 
 auth = Blueprint('auth', __name__)
 
@@ -28,9 +35,12 @@ def signup_validation():
     lastName = request.form['lastName']
     password = request.form['password']
     confPassword = request.form['confirmationPassword']
+    birthDate = request.form['birthDate']
     remember = request.form['remember']
 
     user = User.query.filter_by(email=email).first()
+
+    dateBool, date = checkFormatBirthDate(birthDate)
     
     if password != confPassword:
         flash("Les mots de passes ne sont pas identiques.", "Red_flash")
@@ -38,8 +48,11 @@ def signup_validation():
     elif len(password) < 4 or len(password) > 20:
         flash("Merci de rentrer un mot de passes entre 4 et 20 caractères.", "Red_flash")
         return redirect(url_for('auth.signup'))
+    elif not dateBool:
+        flash("Merci de rentrer une date de naissance au format dd/mm/yyyy.", "Red_flash")
+        return redirect(url_for('auth.signup'))
     elif user is None:
-        new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName, adress="")
+        new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'), role=0, lastName=lastName, birthDate=date, city="", adress="", postalCode="")
 
         db.session.add(new_user)
         db.session.commit()
@@ -50,7 +63,8 @@ def signup_validation():
             "role": "Citoyen",
             "email": email,
             "lastName": lastName,
-            "adress": ""
+            "adress": "",
+            "birthDate": birthDate
         }
         return render_template('profile.html', profileData=profileData)
     else:

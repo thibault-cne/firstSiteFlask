@@ -3,6 +3,8 @@
     Date : 09/11/2021
 """
 
+
+# Import de fonction personnelle
 from py.site.models import User
 
 
@@ -48,3 +50,7 @@ def format_deleted_survey_list(deletedSurveyList):
         deletedSurveys.append(temp)
     
     return deletedSurveys
+
+
+def format_birthDate(birthDate):
+    return birthDate

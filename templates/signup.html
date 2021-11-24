@@ -12,7 +12,8 @@
     
     <!-- Script dependancies -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    
+
+
     <form action="{{ url_for('auth.signup_validation') }}" method="POST">
         <div class="container mt-5 mb-5">
             <div class="row d-flex align-items-center justify-content-center">
@@ -32,7 +33,16 @@
                         </div>
                         <div class="form-input">
                             <i class="fa fa-clock"></i>
-                            <input type="text" class="form-control datepicker" name="birthDate" id="birthDateInput" required>
+                            <input class="form-control" name="birthDate" type="text" placeholder="dd/mm/yyyy" required>                                               
+                        </div>
+                        <div class="form-input">
+                            <i class="fa fa-clock"></i>
+                            <select class="form-select" name="gender" required>
+                                <option value="Default" selected>Select your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>                                              
                         </div>
                         <div class="form-input">
                             <i class="fa fa-lock"></i>
